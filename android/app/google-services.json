@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1086147782863",
+    "project_id": "live-mart-1b361",
+    "storage_bucket": "live-mart-1b361.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086147782863:android:a577a4fbd75938381fefba",
+        "android_client_info": {
+          "package_name": "com.rkdev.live_mart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1086147782863-q3s4rg6qrvnl3vvt0smtjmsrni26so6i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rkdev.live_mart",
+            "certificate_hash": "7fae02aae404613dd5d6c04fceb282355e315fe4"
+          }
+        },
+        {
+          "client_id": "1086147782863-rbkbs4bnfm92f6snjdl2u6lrl5tcdsh3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9pCa9BZ_5qrdW2_axbg_LQJWu3MRdhjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1086147782863-rbkbs4bnfm92f6snjdl2u6lrl5tcdsh3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

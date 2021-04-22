@@ -32,6 +32,7 @@ android {
         applicationId "com.rkdev.live_mart"
         minSdkVersion 16
         targetSdkVersion 30
+        multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -48,3 +49,9 @@ android {
 flutter {
     source '../..'
 }
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:multidex:1.0.3'
+}
+
+apply plugin: 'com.google.gms.google-services'
