@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:live_mart/Customer/CartScreen.dart';
 import 'package:live_mart/Customer/SignUpC.dart';
 import 'package:live_mart/Screens/Sign_Up.dart';
 import 'package:live_mart/Screens/onboardingscreen.dart';
@@ -12,6 +13,7 @@ import 'Wholesaler/SignInW.dart';
 import 'Customer/SignInC.dart';
 import 'Customer/HomeScreenC.dart';
 import 'Screens/onboardscreen.dart';
+import 'package:live_mart/Customer/Categories/ReadyMadefood.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +29,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       routes: {
+        '/CartScreen': (context) => CartScreen(),
+        '/ReadyMade': (context) => ReadyMadeFood(),
         '/SignUpR': (context) => SignUpR(),
         '/SignUpC': (context) => SignUpC(),
         '/SignUpW': (context) => SignUpW(),
@@ -41,7 +45,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreenC(),
+      home: OnBoard(),
     );
   }
 }

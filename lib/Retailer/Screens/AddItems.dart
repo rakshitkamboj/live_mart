@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:live_mart/Retailer/Screens/Bakery.dart';
-import 'package:live_mart/Retailer/Screens/cookie.dart';
-import 'package:live_mart/Retailer/Screens/dairyproducts.dart';
-import 'package:live_mart/Retailer/Screens/fruits.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:intl/intl.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:live_mart/Customer/Categories/DairyProducts.dart';
 
 class AddItems extends StatefulWidget {
   @override
@@ -13,9 +14,9 @@ class AddItems extends StatefulWidget {
 class _AddItemsState extends State<AddItems> {
   Future<void> addCookies() {
     return FirebaseFirestore.instance.collection('BiscuitsCookies').add({
-      "name": ,
-      "inStock": ,
-      "price":
+      "name": 'f',
+      "inStock": 'f',
+      "price": 'f',
     });
   }
 
@@ -39,7 +40,7 @@ class _AddItemsState extends State<AddItems> {
               TextButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return DairyProducts();
+                    // return DairyProducts();
                   }));
                 },
                 child: Container(
@@ -74,7 +75,7 @@ class _AddItemsState extends State<AddItems> {
               TextButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return Bakery();
+                    //  return Bakery();
                   }));
                 },
                 child: Container(
@@ -109,7 +110,7 @@ class _AddItemsState extends State<AddItems> {
               TextButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return Cookie();
+                    //  return Cookie();
                   }));
                 },
                 child: Container(
@@ -141,7 +142,7 @@ class _AddItemsState extends State<AddItems> {
               TextButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return Fruits();
+                    //     return Fruits();
                   }));
                 },
                 child: Container(

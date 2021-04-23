@@ -9,7 +9,7 @@ class SignUpC extends StatefulWidget {
 }
 
 class _SignUpCState extends State<SignUpC> {
-  CollectionReference retailer =
+  CollectionReference customer =
       FirebaseFirestore.instance.collection("customerinfo");
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -46,7 +46,7 @@ class _SignUpCState extends State<SignUpC> {
         return SignInC();
       }),
     );
-    return retailer.doc(_userId).set({
+    return customer.doc(_userId).set({
       'userName': nameController.text,
       'email': _emailController.text,
       'password': _passwordController.text,
