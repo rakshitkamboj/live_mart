@@ -1,5 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:intl/intl.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:live_mart/Customer/Categories/DairyProducts.dart';
 import 'package:live_mart/Retailer/Screens/Bakery.dart';
 import 'package:live_mart/Retailer/Screens/cookie.dart';
 import 'package:live_mart/Retailer/Screens/dairyproducts.dart';
@@ -11,6 +16,14 @@ class AddItems extends StatefulWidget {
 }
 
 class _AddItemsState extends State<AddItems> {
+  Future<void> addCookies() {
+    return FirebaseFirestore.instance.collection('BiscuitsCookies').add({
+      "name": 'f',
+      "inStock": 'f',
+      "price": 'f',
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
