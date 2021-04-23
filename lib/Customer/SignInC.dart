@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:live_mart/Customer/OtpC.dart';
 import 'HomeScreenC.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -108,7 +109,7 @@ class _SignInCState extends State<SignInC> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
-                  child: const Text('Test sign in with email and password'),
+                  child: const Text('sign in with email and password'),
                   padding: const EdgeInsets.all(16),
                   alignment: Alignment.center,
                 ),
@@ -124,7 +125,7 @@ class _SignInCState extends State<SignInC> {
                 ),
                 TextFormField(
                   controller: _passwordController,
-                  decoration: const InputDecoration(labelText: 'Password'),
+                  decoration: const InputDecoration(labelText: 'OTP'),
                   validator: (String value) {
                     if (value.isEmpty) {
                       return 'Please enter some text';
@@ -165,6 +166,30 @@ class _SignInCState extends State<SignInC> {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
                       "Or Login Via Google",
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return OtpC();
+                      }),
+                    );
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(
+                      "Or Login Via Otp",
                       style: TextStyle(
                         color: Colors.red,
                         fontSize: 20,

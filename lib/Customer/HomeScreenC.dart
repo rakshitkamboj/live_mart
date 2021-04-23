@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:live_mart/Customer/searchBar.dart';
 import 'package:live_mart/Retailer/Screens/Feedbacks.dart';
 
 class HomeScreenC extends StatefulWidget {
@@ -31,17 +32,17 @@ class _HomeScreenCState extends State<HomeScreenC> {
               ),
             ),
             ListTile(
-              title: Text('Customer Records'),
+              title: Text('Search Items'),
               onTap: () {
                 // Update the state of the app.
                 // ...
-                // Navigator.pop(context);
-                // Navigator.push(
-                // context,
-                // MaterialPageRoute(builder: (context) {
-                //  return CustomerDetails();
-                //}),
-                //);
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return SearchAppBarDelegate();
+                  }),
+                );
               },
             ),
             ListTile(

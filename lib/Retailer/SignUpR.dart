@@ -127,6 +127,15 @@ class _SignUpRState extends State<SignUpR> {
                       return null;
                     },
                   ),
+                  TextFormField(
+                    decoration: const InputDecoration(labelText: 'PhoneNumber'),
+                    validator: (String value) {
+                      if (value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    },
+                  ),
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
                     alignment: Alignment.center,
@@ -134,6 +143,20 @@ class _SignUpRState extends State<SignUpR> {
                       onPressed: () async {
                         if (_formKey.currentState.validate()) {
                           _register();
+                        } else {
+                          showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                    backgroundColor: Colors.black38,
+                                    title: Text(
+                                      "ERROR",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    content: Text(
+                                      "Try again",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ));
                         }
                       },
                       child: const Text('Submit'),

@@ -42,8 +42,7 @@ class _FeedbacksState extends State<Feedbacks> {
                     child: TextFormField(
                       maxLines: 14,
                       decoration: InputDecoration(
-                          hintText:
-                              "Include all the information someone would need to answer your question",
+                          hintText: "Enter Your Feedback",
                           focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Color(0xFF455A64)),
                               borderRadius: BorderRadius.circular(0.0)),
