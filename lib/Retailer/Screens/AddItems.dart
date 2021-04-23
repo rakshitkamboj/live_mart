@@ -11,14 +11,6 @@ class AddItems extends StatefulWidget {
 }
 
 class _AddItemsState extends State<AddItems> {
-  Future<void> addCookies() {
-    return FirebaseFirestore.instance.collection('BiscuitsCookies').add({
-      "name": ,
-      "inStock": ,
-      "price":
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;

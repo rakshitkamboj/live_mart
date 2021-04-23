@@ -36,12 +36,12 @@ class MyApp extends StatelessWidget {
         '/HomeScreenR': (context) => HomeScreenR(),
         '/HomeScreenW': (context) => HomeScreenW(),
         '/HomeScreenC': (context) => HomeScreenC(),
-        '/OnBoarding': (context) => OnboardingScreen(),
+        // '/OnBoarding': (context) => OnboardingScreen(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreenC(),
+      home: HomeScreenR(),
     );
   }
 }
