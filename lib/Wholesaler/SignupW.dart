@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:live_mart/Retailer/SignInR.dart';
 
 class SignUpW extends StatefulWidget {
   @override
@@ -6,104 +9,147 @@ class SignUpW extends StatefulWidget {
 }
 
 class _SignUpWState extends State<SignUpW> {
+  CollectionReference retailer =
+      FirebaseFirestore.instance.collection("wholesalerinfo");
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmpasswordcont = TextEditingController();
   TextEditingController EmailController = TextEditingController();
   TextEditingController LocationController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  bool _success;
+  String _userEmail;
+  String _userId;
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  void _register() async {
+    final User user = (await _auth.createUserWithEmailAndPassword(
+      email: _emailController.text,
+      password: _passwordController.text,
+    ))
+        .user;
+    if (user != null) {
+      setState(() {
+        _userId = user.uid;
+        _success = true;
+        _userEmail = user.email;
+      });
+    } else {
+      setState(() {
+        _success = true;
+      });
+    }
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return SignInR();
+      }),
+    );
+    return retailer.doc(_userId).set({
+      'userName': nameController.text,
+      'email': _emailController.text,
+      'password': _passwordController.text,
+      'location': LocationController.text,
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    String _userName = nameController.text;
+    String _userLocation = LocationController.text;
     return Scaffold(
-        body: Padding(
-            padding: EdgeInsets.all(10),
-            child: ListView(
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.only(top: 150),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                Text('Sign Up for Wholesaler'),
+                TextFormField(
+                  controller: nameController,
+                  decoration: const InputDecoration(labelText: 'UserName'),
+                  validator: (String value) {
+                    if (value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: _emailController,
+                  decoration: const InputDecoration(labelText: 'Email'),
+                  validator: (String value) {
+                    if (value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: _passwordController,
+                  decoration: const InputDecoration(labelText: 'Password'),
+                  validator: (String value) {
+                    if (value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  decoration:
+                      const InputDecoration(labelText: 'Confirm Password'),
+                  validator: (String value) {
+                    if (value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  controller: LocationController,
+                  decoration: const InputDecoration(labelText: 'Location'),
+                  validator: (String value) {
+                    if (value.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+                  },
+                ),
                 Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Live Mart',
-                      style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 30),
-                    )),
-                Container(
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.all(10),
-                    child: Text(
-                      'Sign up for Retailer',
-                      style: TextStyle(fontSize: 20),
-                    )),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: TextField(
-                    controller: nameController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'User Name',
-                    ),
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  alignment: Alignment.center,
+                  child: TextButton(
+                    onPressed: () async {
+                      if (_formKey.currentState.validate()) {
+                        _register();
+                      }
+                    },
+                    child: const Text('Submit'),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.all(10),
-                  child: TextField(
-                    controller: EmailController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Email',
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextField(
-                    obscureText: true,
-                    controller: passwordController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Password',
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextField(
-                    obscureText: true,
-                    controller: confirmpasswordcont,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Confirm Password',
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextField(
-                    obscureText: false,
-                    controller: LocationController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Location',
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 60,
-                ),
-                Container(
-                    height: 50,
-                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                    child: RaisedButton(
-                      textColor: Colors.white,
-                      color: Colors.blue,
-                      child: Text('SignUp'),
-                      onPressed: () {
-                        print(nameController.text);
-                        print(passwordController.text);
-                      },
-                    )),
+                  alignment: Alignment.center,
+                  child: Text(_success == null
+                      ? ''
+                      : (_success
+                          ? 'Successfully registered ' + _userEmail
+                          : 'Registration failed')),
+                )
               ],
-            )));
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> addUser() async {
+    var firebaseUser = FirebaseAuth.instance.currentUser;
+
+    final FirebaseAuth auth = FirebaseAuth.instance;
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:live_mart/Retailer/SignInR.dart';
 import 'package:live_mart/Screens/onboardingscreen.dart';
 
 class SignUpR extends StatefulWidget {
@@ -9,7 +10,8 @@ class SignUpR extends StatefulWidget {
 }
 
 class _SignUpRState extends State<SignUpR> {
-  CollectionReference retailer = Firestore.instance.collection("Retailerinfo");
+  CollectionReference retailer =
+      FirebaseFirestore.instance.collection("retailerinfo");
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmpasswordcont = TextEditingController();
@@ -21,9 +23,10 @@ class _SignUpRState extends State<SignUpR> {
   bool _success;
   String _userEmail;
   String _userId;
+
   final FirebaseAuth _auth = FirebaseAuth.instance;
   void _register() async {
-    final FirebaseUser user = (await _auth.createUserWithEmailAndPassword(
+    final User user = (await _auth.createUserWithEmailAndPassword(
       email: _emailController.text,
       password: _passwordController.text,
     ))
@@ -39,10 +42,24 @@ class _SignUpRState extends State<SignUpR> {
         _success = true;
       });
     }
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return SignInR();
+      }),
+    );
+    return retailer.doc(_userId).set({
+      'userName': nameController.text,
+      'email': _emailController.text,
+      'password': _passwordController.text,
+      'location': LocationController.text,
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    String _userName = nameController.text;
+    String _userLocation = LocationController.text;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -131,16 +148,9 @@ class _SignUpRState extends State<SignUpR> {
     );
   }
 
-  Future<void> addQuestion() async {
+  Future<void> addUser() async {
     var firebaseUser = FirebaseAuth.instance.currentUser;
 
     final FirebaseAuth auth = FirebaseAuth.instance;
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) {
-        return OnboardingScreen();
-      }),
-    );
   }
 }
