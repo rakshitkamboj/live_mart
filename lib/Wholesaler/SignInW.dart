@@ -124,7 +124,7 @@ class _SignInWState extends State<SignInW> {
                 ),
                 TextFormField(
                   controller: _passwordController,
-                  decoration: const InputDecoration(labelText: 'OTP'),
+                  decoration: const InputDecoration(labelText: 'Password'),
                   validator: (String value) {
                     if (value.isEmpty) {
                       return 'Please enter some text';
@@ -153,7 +153,7 @@ class _SignInWState extends State<SignInW> {
                         : (_success
                             ? 'Successfully signed in ' + _userEmail
                             : 'Sign in failed'),
-                    style: TextStyle(color: Colors.red),
+                    style: TextStyle(color: Colors.teal),
                   ),
                 ),
                 InkWell(
@@ -166,7 +166,7 @@ class _SignInWState extends State<SignInW> {
                     child: Text(
                       "Or Login Via Google",
                       style: TextStyle(
-                        color: Colors.red,
+                        color: Colors.teal,
                         fontSize: 20,
                       ),
                     ),
@@ -190,7 +190,7 @@ class _SignInWState extends State<SignInW> {
                     child: Text(
                       "Or Login Via Otp",
                       style: TextStyle(
-                        color: Colors.red,
+                        color: Colors.teal,
                         fontSize: 20,
                       ),
                     ),

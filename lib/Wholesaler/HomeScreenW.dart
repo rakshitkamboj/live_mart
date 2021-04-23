@@ -28,7 +28,7 @@ class _HomeScreenWState extends State<HomeScreenW> {
             DrawerHeader(
               child: Text('Live Mart'),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.teal,
               ),
             ),
             ListTile(

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OnBoard extends StatefulWidget {
@@ -12,18 +13,20 @@ class _OnBoardState extends State<OnBoard> {
       body: SafeArea(
         child: Column(
           children: [
+
             Padding(
-              padding: EdgeInsets.only(top: 40, left: 40),
+
+              padding: EdgeInsets.only(top: 450, left: 100),
               child: TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/SignUpC');
                 },
                 child: Container(
-                  width: 85.0,
+                  width: 200.0,
                   height: 40.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4.0),
-                    color: Colors.purple,
+                    color: Colors.teal,
                   ),
                   child: Center(
                     child: Text(
@@ -39,22 +42,22 @@ class _OnBoardState extends State<OnBoard> {
                 Navigator.pushNamed(context, '/SignInC');
               },
               child: Padding(
-                padding: EdgeInsets.only(left: 40),
+                padding: EdgeInsets.only(left: 30),
                 child: Text("Already a Customer?"),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 40, left: 40),
+              padding: EdgeInsets.only(top: 10, left: 100),
               child: TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/SignUpR');
                 },
                 child: Container(
-                  width: 85.0,
+                  width: 200.0,
                   height: 40.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4.0),
-                    color: Colors.purple,
+                    color: Colors.teal,
                   ),
                   child: Center(
                     child: Text(
@@ -75,17 +78,17 @@ class _OnBoardState extends State<OnBoard> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 40, left: 40),
+              padding: EdgeInsets.only(top: 10, left: 100),
               child: TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/SignUpW');
                 },
                 child: Container(
-                  width: 85.0,
+                  width: 200.0,
                   height: 40.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4.0),
-                    color: Colors.purple,
+                    color: Colors.teal,
                   ),
                   child: Center(
                     child: Text(
@@ -111,3 +114,5 @@ class _OnBoardState extends State<OnBoard> {
     );
   }
 }
+
+
