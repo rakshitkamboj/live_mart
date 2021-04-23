@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:live_mart/Retailer/Screens/Feedbacks.dart';
 
 class Dairyy extends StatefulWidget {
   @override
@@ -102,6 +103,29 @@ class _DairyyState extends State<Dairyy> {
                     color: Color(0xFF455A64),
                   ),
                 )),
+            Positioned(
+              top: height1 * 0.18,
+              right: width1 * 0.075,
+              child: InkWell(
+                onTap: () {
+                  //tagList.add({
+                  //'itemname': doc.data()['name'],
+                  // 'itemprice': doc.data()['price'],
+                  // "itemquantity": doc.data()['quantity']
+                  //});
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return Feedbacks();
+                    }),
+                  );
+                },
+                child: Icon(
+                  Icons.feedback,
+                ),
+              ),
+            ),
             Positioned(
                 top: height1 * 0.15,
                 left: width1 * 0.4,

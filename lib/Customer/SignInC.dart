@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'HomeScreenC.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class SignInC extends StatefulWidget {
   @override
@@ -40,6 +41,60 @@ class _SignInCState extends State<SignInC> {
       }),
     );
   }
+
+  /////////////GOogle//////////////////////
+  GoogleSignIn _googleSignIn = GoogleSignIn();
+
+  bool isUserSignedIn = false;
+
+  void checkIfUserIsSignedIn() async {
+    var userSignedIn = await _googleSignIn.isSignedIn();
+
+    setState(() {
+      isUserSignedIn = userSignedIn;
+    });
+  }
+
+  Future<User> _handleSignIn() async {
+    // hold the instance of the authenticated user
+    User user;
+    // flag to check whether we're signed in already
+    bool isSignedIn = await _googleSignIn.isSignedIn();
+
+    setState(() {
+      isUserSignedIn = isSignedIn;
+    });
+    if (isSignedIn) {
+      // if so, return the current user
+      user = _auth.currentUser;
+    } else {
+      final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+      // get the credentials to (access / id token)
+      // to sign in via Firebase Authentication
+      final AuthCredential credential = GoogleAuthProvider.getCredential(
+          accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
+      user = (await _auth.signInWithCredential(credential)).user;
+      isSignedIn = await _googleSignIn.isSignedIn();
+      setState(() {
+        isUserSignedIn = isSignedIn;
+      });
+    }
+
+    return user;
+  }
+
+  void onGoogleSignIn(BuildContext context) async {
+    User user = await _handleSignIn();
+    var userSignedIn = Navigator.push(
+        context, MaterialPageRoute(builder: (context) => HomeScreenC()));
+    setState(() {
+      isUserSignedIn = userSignedIn == null ? true : false;
+    });
+  }
+
+  //////////END//////////////////////
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +155,23 @@ class _SignInCState extends State<SignInC> {
                             : 'Sign in failed'),
                     style: TextStyle(color: Colors.red),
                   ),
-                )
+                ),
+                InkWell(
+                  onTap: () {
+                    onGoogleSignIn(context);
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Text(
+                      "Or Login Via Google",
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:live_mart/Retailer/Screens/Feedbacks.dart';
 
 class Bakeryy extends StatefulWidget {
   @override
@@ -149,6 +150,29 @@ class _BakeryyState extends State<Bakeryy> {
                 },
                 child: Icon(
                   Icons.add,
+                ),
+              ),
+            ),
+            Positioned(
+              top: height1 * 0.18,
+              right: width1 * 0.075,
+              child: InkWell(
+                onTap: () {
+                  //tagList.add({
+                  //'itemname': doc.data()['name'],
+                  // 'itemprice': doc.data()['price'],
+                  // "itemquantity": doc.data()['quantity']
+                  //});
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return Feedbacks();
+                    }),
+                  );
+                },
+                child: Icon(
+                  Icons.feedback,
                 ),
               ),
             ),

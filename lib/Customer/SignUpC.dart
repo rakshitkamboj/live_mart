@@ -58,85 +58,93 @@ class _SignUpCState extends State<SignUpC> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.only(top: 150),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('Sign Up for Customer'),
-                TextFormField(
-                  controller: nameController,
-                  decoration: const InputDecoration(labelText: 'UserName'),
-                  validator: (String value) {
-                    if (value.isEmpty) {
-                      return 'Please enter some text';
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  controller: _emailController,
-                  decoration: const InputDecoration(labelText: 'Email'),
-                  validator: (String value) {
-                    if (value.isEmpty) {
-                      return 'Please enter some text';
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  controller: _passwordController,
-                  decoration: const InputDecoration(labelText: 'Password'),
-                  validator: (String value) {
-                    if (value.isEmpty) {
-                      return 'Please enter some text';
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  decoration:
-                      const InputDecoration(labelText: 'Confirm Password'),
-                  validator: (String value) {
-                    if (value.isEmpty) {
-                      return 'Please enter some text';
-                    }
-                    return null;
-                  },
-                ),
-                TextFormField(
-                  controller: LocationController,
-                  decoration: const InputDecoration(labelText: 'Location'),
-                  validator: (String value) {
-                    if (value.isEmpty) {
-                      return 'Please enter some text';
-                    }
-                    return null;
-                  },
-                ),
-                Container(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  alignment: Alignment.center,
-                  child: TextButton(
-                    onPressed: () async {
-                      if (_formKey.currentState.validate()) {
-                        _register();
-                      }
-                    },
-                    child: const Text('Submit'),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.only(top: 150),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'Sign Up for Customer',
+                    style: TextStyle(fontSize: 25),
                   ),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  child: Text(_success == null
-                      ? ''
-                      : (_success
-                          ? 'Successfully registered ' + _userEmail
-                          : 'Registration failed')),
-                )
-              ],
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    controller: nameController,
+                    decoration: const InputDecoration(labelText: 'UserName'),
+                    validator: (String value) {
+                      if (value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    },
+                  ),
+                  TextFormField(
+                    controller: _emailController,
+                    decoration: const InputDecoration(labelText: 'Email'),
+                    validator: (String value) {
+                      if (value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    },
+                  ),
+                  TextFormField(
+                    controller: _passwordController,
+                    decoration: const InputDecoration(labelText: 'Password'),
+                    validator: (String value) {
+                      if (value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    },
+                  ),
+                  TextFormField(
+                    decoration:
+                        const InputDecoration(labelText: 'Confirm Password'),
+                    validator: (String value) {
+                      if (value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    },
+                  ),
+                  TextFormField(
+                    controller: LocationController,
+                    decoration: const InputDecoration(labelText: 'Location'),
+                    validator: (String value) {
+                      if (value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    },
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    alignment: Alignment.center,
+                    child: TextButton(
+                      onPressed: () async {
+                        if (_formKey.currentState.validate()) {
+                          _register();
+                        }
+                      },
+                      child: const Text('Submit'),
+                    ),
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    child: Text(_success == null
+                        ? ''
+                        : (_success
+                            ? 'Successfully registered ' + _userEmail
+                            : 'Registration failed')),
+                  )
+                ],
+              ),
             ),
           ),
         ),
