@@ -1,5 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:intl/intl.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:live_mart/Retailer/Screens/Feedbacks.dart';
 
 class HomeScreenC extends StatefulWidget {
   @override
@@ -9,7 +14,81 @@ class HomeScreenC extends StatefulWidget {
 class _HomeScreenCState extends State<HomeScreenC> {
   @override
   Widget build(BuildContext context) {
+    final User user = FirebaseAuth.instance.currentUser;
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text(
+                'Welcome to LiveMart',
+                style: TextStyle(fontSize: 25),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+            ),
+            ListTile(
+              title: Text('Customer Records'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+                // Navigator.pop(context);
+                // Navigator.push(
+                // context,
+                // MaterialPageRoute(builder: (context) {
+                //  return CustomerDetails();
+                //}),
+                //);
+              },
+            ),
+            ListTile(
+              title: Text('Place an Order'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+                //  Navigator.pop(context);
+                // Navigator.push(
+                // context,
+                // MaterialPageRoute(builder: (context) {
+                //  return PlaceOrder();
+                //}),
+                //);
+              },
+            ),
+            ListTile(
+              title: Text('Order Payment'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+                //   Navigator.pop(context);
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) {
+                //   return PlaceOrder();
+                //  }),
+                // );
+              },
+            ),
+            ListTile(
+              title: Text('Feedback/Queries'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return Feedbacks();
+                  }),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
@@ -71,23 +150,27 @@ class _HomeScreenCState extends State<HomeScreenC> {
                   SizedBox(
                     height: 40,
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 200,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                "https://th.bing.com/th/id/R0ead639ccf7f5770361c9f547472f1f2?rik=2kMqRA98UXLNew&riu=http%3a%2f%2fsnaplant.com%2fwp-content%2fuploads%2f2016%2f04%2fharvest-vegetables.jpg&ehk=WEvQZ%2fZtDQWzx6wNxvXv020%2bL%2f62fzVTzOE4vsZDZvQ%3d&risl=&pid=ImgRaw"),
-                            fit: BoxFit.cover)),
-                    padding: EdgeInsets.only(top: 50.0),
-                    child: Text(
-                      "Vegetables",
-                      style: TextStyle(
-                          color: Colors.white.withOpacity(0.8),
-                          fontSize: 38.0,
-                          height: 1.4,
-                          fontWeight: FontWeight.w600),
-                      textAlign: TextAlign.center,
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/VegetableC');
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      height: 200,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("Images/salad.jpg"),
+                              fit: BoxFit.cover)),
+                      padding: EdgeInsets.only(top: 50.0),
+                      child: Text(
+                        "Vegetables",
+                        style: TextStyle(
+                            color: Colors.white.withOpacity(0.8),
+                            fontSize: 38.0,
+                            height: 1.4,
+                            fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -102,8 +185,7 @@ class _HomeScreenCState extends State<HomeScreenC> {
                       height: 200,
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: NetworkImage(
-                                  "https://th.bing.com/th/id/OIP.ytkXzUC4EZjszWGV1C4ULQHaE8?pid=ImgDet&rs=1"),
+                              image: AssetImage("Images/Cookie.jpg"),
                               fit: BoxFit.cover)),
                       padding: EdgeInsets.only(top: 50.0),
                       child: Text(
@@ -120,45 +202,54 @@ class _HomeScreenCState extends State<HomeScreenC> {
                   SizedBox(
                     height: 40,
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 200,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                "https://dailytimes.com.pk/assets/uploads/2018/07/15/illustration-of-dairy-products.jpg"),
-                            fit: BoxFit.cover)),
-                    padding: EdgeInsets.only(top: 50.0),
-                    child: Text(
-                      "Dairy Products",
-                      style: TextStyle(
-                          color: Colors.white.withOpacity(0.8),
-                          fontSize: 38.0,
-                          height: 1.4,
-                          fontWeight: FontWeight.w600),
-                      textAlign: TextAlign.center,
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/DairyC');
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      height: 200,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                  "https://dailytimes.com.pk/assets/uploads/2018/07/15/illustration-of-dairy-products.jpg"),
+                              fit: BoxFit.cover)),
+                      padding: EdgeInsets.only(top: 50.0),
+                      child: Text(
+                        "Dairy Products",
+                        style: TextStyle(
+                            color: Colors.white.withOpacity(0.8),
+                            fontSize: 38.0,
+                            height: 1.4,
+                            fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 40,
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: 200,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                "https://www.avenuecalgary.com/wp-content/uploads/2019/09/Lynda-KoreanBakery.jpg"),
-                            fit: BoxFit.cover)),
-                    padding: EdgeInsets.only(top: 50.0),
-                    child: Text(
-                      "Bakery Products",
-                      style: TextStyle(
-                          color: Colors.white.withOpacity(0.8),
-                          fontSize: 38.0,
-                          height: 1.4,
-                          fontWeight: FontWeight.w600),
-                      textAlign: TextAlign.center,
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/BakeryC');
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      height: 200,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('Images/cheese.jpg'),
+                              fit: BoxFit.cover)),
+                      padding: EdgeInsets.only(top: 50.0),
+                      child: Text(
+                        "Bakery Products",
+                        style: TextStyle(
+                            color: Colors.white.withOpacity(0.8),
+                            fontSize: 38.0,
+                            height: 1.4,
+                            fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ]),

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 CollectionReference BakeryRef = FirebaseFirestore.instance.collection("Bakery");
 
@@ -29,6 +30,7 @@ class _BakeryState extends State<Bakery> {
   TextEditingController breadQuantityController = TextEditingController();
   TextEditingController breadPriceController = TextEditingController();
   BreadPressed() {
+    final User user = FirebaseAuth.instance.currentUser;
     return AlertDialog(
       title: Text("Add Item"),
       content: Column(
@@ -54,7 +56,8 @@ class _BakeryState extends State<Bakery> {
                 "Name": breadtextController.text,
                 "Quantity": breadQuantityController.text,
                 "Price": breadPriceController.text,
-                "In Stock": BreadStockCheck()
+                "In Stock": BreadStockCheck(),
+                "imgUrl": "Images/bread.jpg",
               });
             },
             child: Text("Add")),
@@ -80,6 +83,7 @@ class _BakeryState extends State<Bakery> {
   TextEditingController CakePriceController = TextEditingController();
   TextEditingController CakeQuantityController = TextEditingController();
   CakePressed() {
+    final User user = FirebaseAuth.instance.currentUser;
     return AlertDialog(
       title: Text("Add Item"),
       content: Column(
@@ -105,7 +109,8 @@ class _BakeryState extends State<Bakery> {
                 "Name": CaketextController.text,
                 "Quantity": CakeQuantityController.text,
                 "Price": CakePriceController.text,
-                "In Stock": CakeStockCheck()
+                "In Stock": CakeStockCheck(),
+                "imgUrl": "Images/cake.jpg",
               });
             },
             child: Text("Add")),
@@ -131,6 +136,7 @@ class _BakeryState extends State<Bakery> {
   TextEditingController IceCreamPriceController = TextEditingController();
   TextEditingController IceCreamQuantityController = TextEditingController();
   IceCreamPressed() {
+    final User user = FirebaseAuth.instance.currentUser;
     return AlertDialog(
       title: Text("Add Item"),
       content: Column(
@@ -156,7 +162,8 @@ class _BakeryState extends State<Bakery> {
                 "Name": IceCreamtextController.text,
                 "Quantity": IceCreamQuantityController.text,
                 "Price": IceCreamPriceController.text,
-                "In Stock": IceCreamStockCheck()
+                "In Stock": IceCreamStockCheck(),
+                "imgUrl": "Images/Icecream.jpg",
               });
             },
             child: Text("Add")),
@@ -182,6 +189,7 @@ class _BakeryState extends State<Bakery> {
   TextEditingController CandyPriceController = TextEditingController();
   TextEditingController CandyQuantityController = TextEditingController();
   CandyPressed() {
+    final User user = FirebaseAuth.instance.currentUser;
     return AlertDialog(
       title: Text("Add Item"),
       content: Column(
@@ -207,7 +215,9 @@ class _BakeryState extends State<Bakery> {
                 "Name": CandytextController.text,
                 "Quantity": CandyQuantityController.text,
                 "Price": CandyPriceController.text,
-                "In Stock": CandyStockCheck()
+                "In Stock": CandyStockCheck(),
+                "sellerName": user.displayName,
+                "imageUrl": "Images/cake.jpg",
               });
             },
             child: Text("Add")),

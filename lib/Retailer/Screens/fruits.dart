@@ -55,7 +55,8 @@ class _FruitsState extends State<Fruits> {
                 "Name": SaladtextController.text,
                 "Quantity": SaladQuantityController.text,
                 "Price": SaladPriceController.text,
-                "In Stock": SaladStockCheck()
+                "In Stock": SaladStockCheck(),
+                "imgUrl": "Images/salad.jpg",
               });
             },
             child: Text("Add")),
@@ -106,7 +107,8 @@ class _FruitsState extends State<Fruits> {
                 "Name": SpinachtextController.text,
                 "Quantity": SpinachQuantityController.text,
                 "Price": SpinachPriceController.text,
-                "In Stock": SpinachStockCheck()
+                "In Stock": SpinachStockCheck(),
+                "imgUrl": "Images/spinach.jpg",
               });
             },
             child: Text("Add")),
@@ -157,7 +159,8 @@ class _FruitsState extends State<Fruits> {
                 "Name": AppletextController.text,
                 "Quantity": AppleQuantityController.text,
                 "Price": ApplePriceController.text,
-                "In Stock": AppleStockCheck()
+                "In Stock": AppleStockCheck(),
+                "imgUrl": "Images/apple.jpg",
               });
             },
             child: Text("Add")),
@@ -208,7 +211,8 @@ class _FruitsState extends State<Fruits> {
                 "Name": GrapetextController.text,
                 "Quantity": GrapeQuantityController.text,
                 "Price": GrapePriceController.text,
-                "In Stock": GrapeStockCheck()
+                "In Stock": GrapeStockCheck(),
+                "imgUrl": "Images/grapes.jpg",
               });
             },
             child: Text("Add")),

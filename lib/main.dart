@@ -14,6 +14,9 @@ import 'Customer/SignInC.dart';
 import 'Customer/HomeScreenC.dart';
 import 'Screens/onboardscreen.dart';
 import 'package:live_mart/Customer/Categories/ReadyMadefood.dart';
+import 'package:live_mart/Customer/Categories/Bakery.dart';
+import 'package:live_mart/Customer/Categories/Vegetables.dart';
+import 'package:live_mart/Customer/Categories/DairyProducts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +43,9 @@ class MyApp extends StatelessWidget {
         '/HomeScreenR': (context) => HomeScreenR(),
         '/HomeScreenW': (context) => HomeScreenW(),
         '/HomeScreenC': (context) => HomeScreenC(),
-        // '/OnBoarding': (context) => OnboardingScreen(),
+        '/BakeryC':(context)=>Bakeryy(),
+        '/VegetableC':(context)=> FruitVeg(),
+        '/DairyC':(context)=> Dairyy(),
       },
       theme: ThemeData(
         primarySwatch: Colors.blue,

@@ -15,7 +15,6 @@ class _FeedbacksState extends State<Feedbacks> {
           onTap: () {
             // Update the state of the app.
             // ...
-            Navigator.pop(context);
           },
         ),
       ),

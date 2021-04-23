@@ -55,7 +55,8 @@ class _DairyProductsState extends State<DairyProducts> {
                 "Name": MilktextController.text,
                 "Quantity": MilkQuantityController.text,
                 "Price": MilkPriceController.text,
-                "In Stock": MilkStockCheck()
+                "In Stock": MilkStockCheck(),
+                "imgUrl": "Images/milk.jpg",
               });
             },
             child: Text("Add")),
@@ -106,7 +107,8 @@ class _DairyProductsState extends State<DairyProducts> {
                 "Name": CheesetextController.text,
                 "Quantity": CheeseQuantityController.text,
                 "Price": CheesePriceController.text,
-                "In Stock": CheeseStockCheck()
+                "In Stock": CheeseStockCheck(),
+                "imgUrl": "Images/cheese.jpg",
               });
             },
             child: Text("Add")),
@@ -157,7 +159,8 @@ class _DairyProductsState extends State<DairyProducts> {
                 "Name": ButtertextController.text,
                 "Quantity": ButterQuantityController.text,
                 "Price": ButterPriceController.text,
-                "In Stock": ButterStockCheck()
+                "In Stock": ButterStockCheck(),
+                "imgUrl": "Images/Butter.jpg",
               });
             },
             child: Text("Add")),
@@ -208,7 +211,8 @@ class _DairyProductsState extends State<DairyProducts> {
                 "Name": YoghurttextController.text,
                 "Quantity": YoghurtQuantityController.text,
                 "Price": YoghurtPriceController.text,
-                "In Stock": YoghurtStockCheck()
+                "In Stock": YoghurtStockCheck(),
+                "imgUrl": "Images/cake.jpg",
               });
             },
             child: Text("Add")),

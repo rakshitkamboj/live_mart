@@ -34,7 +34,10 @@ class _CartScreenState extends State<CartScreen> {
                                 style: TextStyle(color: Colors.white),
                               ),
                               content: Text(
-                                "Your Order Placed",
+                                "Your Order Placed ."
+                                " Delivery boy Name : Ramesh , Phone No. 9812838892   . "
+                                "Your Order will reach you in 2-3 days    ."
+                                "HAPPY SHOPPING",
                                 style: TextStyle(color: Colors.white),
                               ),
                             ));
