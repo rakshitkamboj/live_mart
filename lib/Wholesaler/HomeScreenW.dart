@@ -46,7 +46,7 @@ class _HomeScreenWState extends State<HomeScreenW> {
               },
             ),
             ListTile(
-              title: Text('Feedback Recieved'),
+              title: Text('Feedback Received'),
               onTap: () {
                 // Update the state of the app.
                 // ...

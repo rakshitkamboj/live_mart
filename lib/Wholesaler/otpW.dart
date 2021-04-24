@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 import 'HomeScreenW.dart';
 
 class OtpW extends StatefulWidget {
@@ -67,6 +68,7 @@ class _OtpwState extends State<OtpW> {
                   },
                 ),
                 TextFormField(
+                  obscureText: true,
                   controller: _passwordController,
                   decoration: const InputDecoration(labelText: 'Password'),
                   validator: (String value) {

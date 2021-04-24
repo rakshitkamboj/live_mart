@@ -12,9 +12,9 @@ class _SignUpCState extends State<SignUpC> {
   CollectionReference customer =
       FirebaseFirestore.instance.collection("customerinfo");
   TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+
   TextEditingController confirmpasswordcont = TextEditingController();
-  TextEditingController EmailController = TextEditingController();
+
   TextEditingController LocationController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
@@ -138,6 +138,7 @@ class _SignUpCState extends State<SignUpC> {
                     alignment: Alignment.center,
                     child: TextButton(
                       onPressed: () async {
+                        print("f");
                         if (_formKey.currentState.validate()) {
                           _register();
                         } else {

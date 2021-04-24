@@ -67,6 +67,7 @@ class _OtpRState extends State<OtpR> {
                   },
                 ),
                 TextFormField(
+                  obscureText: true,
                   controller: _passwordController,
                   decoration: const InputDecoration(labelText: 'Password'),
                   validator: (String value) {

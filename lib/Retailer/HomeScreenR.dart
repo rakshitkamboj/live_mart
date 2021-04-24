@@ -5,7 +5,8 @@ import 'package:live_mart/Retailer/Screens/DeleteItems.dart';
 import 'package:live_mart/Retailer/Screens/Feedbacks.dart';
 import 'package:live_mart/Retailer/Screens/UpdateItems.dart';
 import 'package:live_mart/Retailer/Screens/placeOrder.dart';
-
+import 'package:live_mart/Customer/HomeScreenC.dart';
+import 'package:live_mart/Customer/OrdersC.dart';
 class HomeScreenR extends StatefulWidget {
   @override
   _HomeScreenRState createState() => _HomeScreenRState();
@@ -32,6 +33,20 @@ class _HomeScreenRState extends State<HomeScreenR> {
               ),
             ),
             ListTile(
+              title: Text('Your Orders'),
+              onTap: () {
+                // Update the state of the app.
+                // ...
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return YourOrders();
+                  }),
+                );
+              },
+            ),
+            ListTile(
               title: Text('Customer Records'),
               onTap: () {
                 // Update the state of the app.
@@ -54,7 +69,7 @@ class _HomeScreenRState extends State<HomeScreenR> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) {
-                    return PlaceOrder();
+                    return HomeScreenC();
                   }),
                 );
               },
