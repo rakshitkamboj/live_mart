@@ -13,10 +13,9 @@ class _OnBoardState extends State<OnBoard> {
       body: SafeArea(
         child: Column(
           children: [
-
+            Image.asset('Images/logo2.png'),
             Padding(
-
-              padding: EdgeInsets.only(top: 450, left: 100),
+              padding: EdgeInsets.only(top: 100, left: 10),
               child: TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/SignUpC');
@@ -42,12 +41,12 @@ class _OnBoardState extends State<OnBoard> {
                 Navigator.pushNamed(context, '/SignInC');
               },
               child: Padding(
-                padding: EdgeInsets.only(left: 30),
+                padding: EdgeInsets.only(left: 10),
                 child: Text("Already a Customer?"),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 10, left: 100),
+              padding: EdgeInsets.only(top: 10, left: 10),
               child: TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/SignUpR');
@@ -73,12 +72,12 @@ class _OnBoardState extends State<OnBoard> {
                 Navigator.pushNamed(context, '/SignInR');
               },
               child: Padding(
-                padding: EdgeInsets.only(left: 40),
+                padding: EdgeInsets.only(left: 10),
                 child: Text("Already a Retailer?"),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 10, left: 100),
+              padding: EdgeInsets.only(top: 10, left: 10),
               child: TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/SignUpW');
@@ -104,7 +103,7 @@ class _OnBoardState extends State<OnBoard> {
                 Navigator.pushNamed(context, '/SignInW');
               },
               child: Padding(
-                padding: EdgeInsets.only(left: 40),
+                padding: EdgeInsets.only(left: 10),
                 child: Text("Already a Wholesaler?"),
               ),
             ),
@@ -114,5 +113,3 @@ class _OnBoardState extends State<OnBoard> {
     );
   }
 }
-
-

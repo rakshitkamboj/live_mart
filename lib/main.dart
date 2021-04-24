@@ -30,8 +30,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       routes: {
         '/CartScreen': (context) => CartScreen(),
@@ -45,9 +45,9 @@ class MyApp extends StatelessWidget {
         '/HomeScreenR': (context) => HomeScreenR(),
         '/HomeScreenW': (context) => HomeScreenW(),
         '/HomeScreenC': (context) => HomeScreenC(),
-        '/BakeryC':(context)=>Bakeryy(),
-        '/VegetableC':(context)=> FruitVeg(),
-        '/DairyC':(context)=> Dairyy(),
+        '/BakeryC': (context) => Bakeryy(),
+        '/VegetableC': (context) => FruitVeg(),
+        '/DairyC': (context) => Dairyy(),
       },
       theme: ThemeData(
         primarySwatch: Colors.teal,
