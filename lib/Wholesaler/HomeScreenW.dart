@@ -18,7 +18,7 @@ class _HomeScreenWState extends State<HomeScreenW> {
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("Welcome, WholeSaler")),
+        title: Center(child: Text("Welcome, Wholesaler")),
       ),
       drawer: Drawer(
         child: ListView(

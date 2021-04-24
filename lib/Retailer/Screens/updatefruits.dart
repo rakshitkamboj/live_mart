@@ -46,6 +46,54 @@ class _UpdateFruitsState extends State<UpdateFruits> {
                       ),
                       Positioned(
                         child: TextButton(
+                          onPressed: (){
+                            showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Text("Update this Item"),
+                                  content: Column(
+                                    children: [
+                                      TextFormField(
+                                        decoration: InputDecoration(
+                                            hintText:
+                                            "Price of the Product"),
+                                      ),
+                                      TextFormField(
+                                        decoration: InputDecoration(
+                                            hintText: "Quantity"),
+                                      ),
+                                    ],
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          showDialog(
+                                              context: context,
+                                              builder: (context) =>
+                                                  AlertDialog(
+                                                    backgroundColor:
+                                                    Colors.black38,
+                                                    title: Text(
+                                                      "Success",
+                                                      style: TextStyle(
+                                                          color:
+                                                          Colors.white),
+                                                    ),
+                                                    content: Text(
+                                                      "Product is Updated",
+                                                      style: TextStyle(
+                                                          color:
+                                                          Colors.white),
+                                                    ),
+                                                  ));
+                                        },
+                                        child: Text("Update")),
+                                    TextButton(
+                                        onPressed: () {},
+                                        child: Text("Cancel"))
+                                  ],
+                                ));
+                          },
                           child: Text("Update this item",
                               style: TextStyle(
                                   fontSize: width * 0.04,
@@ -100,6 +148,54 @@ class _UpdateFruitsState extends State<UpdateFruits> {
                       ),
                       Positioned(
                         child: TextButton(
+                          onPressed: (){
+                            showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Text("Update this Item"),
+                                  content: Column(
+                                    children: [
+                                      TextFormField(
+                                        decoration: InputDecoration(
+                                            hintText:
+                                            "Price of the Product"),
+                                      ),
+                                      TextFormField(
+                                        decoration: InputDecoration(
+                                            hintText: "Quantity"),
+                                      ),
+                                    ],
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          showDialog(
+                                              context: context,
+                                              builder: (context) =>
+                                                  AlertDialog(
+                                                    backgroundColor:
+                                                    Colors.black38,
+                                                    title: Text(
+                                                      "Success",
+                                                      style: TextStyle(
+                                                          color:
+                                                          Colors.white),
+                                                    ),
+                                                    content: Text(
+                                                      "Product is Updated",
+                                                      style: TextStyle(
+                                                          color:
+                                                          Colors.white),
+                                                    ),
+                                                  ));
+                                        },
+                                        child: Text("Update")),
+                                    TextButton(
+                                        onPressed: () {},
+                                        child: Text("Cancel"))
+                                  ],
+                                ));
+                          },
                           child: Text("Update this item",
                               style: TextStyle(
                                   fontSize: width * 0.04,
@@ -154,6 +250,54 @@ class _UpdateFruitsState extends State<UpdateFruits> {
                       ),
                       Positioned(
                         child: TextButton(
+                          onPressed: (){
+                            showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Text("Update this Item"),
+                                  content: Column(
+                                    children: [
+                                      TextFormField(
+                                        decoration: InputDecoration(
+                                            hintText:
+                                            "Price of the Product"),
+                                      ),
+                                      TextFormField(
+                                        decoration: InputDecoration(
+                                            hintText: "Quantity"),
+                                      ),
+                                    ],
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          showDialog(
+                                              context: context,
+                                              builder: (context) =>
+                                                  AlertDialog(
+                                                    backgroundColor:
+                                                    Colors.black38,
+                                                    title: Text(
+                                                      "Success",
+                                                      style: TextStyle(
+                                                          color:
+                                                          Colors.white),
+                                                    ),
+                                                    content: Text(
+                                                      "Product is Updated",
+                                                      style: TextStyle(
+                                                          color:
+                                                          Colors.white),
+                                                    ),
+                                                  ));
+                                        },
+                                        child: Text("Update")),
+                                    TextButton(
+                                        onPressed: () {},
+                                        child: Text("Cancel"))
+                                  ],
+                                ));
+                          },
                           child: Text("Update this item",
                               style: TextStyle(
                                   fontSize: width * 0.04,
@@ -208,6 +352,54 @@ class _UpdateFruitsState extends State<UpdateFruits> {
                       ),
                       Positioned(
                         child: TextButton(
+                          onPressed: (){
+                            showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Text("Update this Item"),
+                                  content: Column(
+                                    children: [
+                                      TextFormField(
+                                        decoration: InputDecoration(
+                                            hintText:
+                                            "Price of the Product"),
+                                      ),
+                                      TextFormField(
+                                        decoration: InputDecoration(
+                                            hintText: "Quantity"),
+                                      ),
+                                    ],
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          showDialog(
+                                              context: context,
+                                              builder: (context) =>
+                                                  AlertDialog(
+                                                    backgroundColor:
+                                                    Colors.black38,
+                                                    title: Text(
+                                                      "Success",
+                                                      style: TextStyle(
+                                                          color:
+                                                          Colors.white),
+                                                    ),
+                                                    content: Text(
+                                                      "Product is Updated",
+                                                      style: TextStyle(
+                                                          color:
+                                                          Colors.white),
+                                                    ),
+                                                  ));
+                                        },
+                                        child: Text("Update")),
+                                    TextButton(
+                                        onPressed: () {},
+                                        child: Text("Cancel"))
+                                  ],
+                                ));
+                          },
                           child: Text("Update this item",
                               style: TextStyle(
                                   fontSize: width * 0.04,

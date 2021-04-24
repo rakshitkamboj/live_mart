@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:live_mart/Retailer/SignInR.dart';
+import 'package:live_mart/Wholesaler/SignInW.dart';
 
 class SignUpW extends StatefulWidget {
   @override
@@ -44,7 +45,7 @@ class _SignUpWState extends State<SignUpW> {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) {
-        return SignInR();
+        return SignInW();
       }),
     );
     return retailer.doc(_userId).set({

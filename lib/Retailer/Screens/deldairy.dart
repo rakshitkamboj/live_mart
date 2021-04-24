@@ -46,6 +46,21 @@ class _DelDairyProductsState extends State<DelDairyProducts> {
                       ),
                       Positioned(
                         child: TextButton(
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                      backgroundColor: Colors.black38,
+                                      title: Text(
+                                        "Success",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      content: Text(
+                                        "Your Product is Deleted",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ));
+                          },
                           child: Text("Delete this item",
                               style: TextStyle(
                                   fontSize: width * 0.04,
@@ -100,6 +115,21 @@ class _DelDairyProductsState extends State<DelDairyProducts> {
                       ),
                       Positioned(
                         child: TextButton(
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                      backgroundColor: Colors.black38,
+                                      title: Text(
+                                        "Success",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      content: Text(
+                                        "Your Product is Deleted",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ));
+                          },
                           child: Text("Delete this item",
                               style: TextStyle(
                                   fontSize: width * 0.04,
@@ -154,6 +184,21 @@ class _DelDairyProductsState extends State<DelDairyProducts> {
                       ),
                       Positioned(
                         child: TextButton(
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                      backgroundColor: Colors.black38,
+                                      title: Text(
+                                        "Success",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      content: Text(
+                                        "Your Product is Deleted",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ));
+                          },
                           child: Text("Delete this item",
                               style: TextStyle(
                                   fontSize: width * 0.04,
@@ -208,6 +253,21 @@ class _DelDairyProductsState extends State<DelDairyProducts> {
                       ),
                       Positioned(
                         child: TextButton(
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                      backgroundColor: Colors.black38,
+                                      title: Text(
+                                        "Success",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      content: Text(
+                                        "Your Product is Deleted",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ));
+                          },
                           child: Text("Delete this item",
                               style: TextStyle(
                                   fontSize: width * 0.04,
