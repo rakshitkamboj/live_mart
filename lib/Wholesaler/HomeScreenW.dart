@@ -5,6 +5,7 @@ import 'package:live_mart/Retailer/Screens/DeleteItems.dart';
 import 'package:live_mart/Retailer/Screens/Feedbacks.dart';
 import 'package:live_mart/Retailer/Screens/UpdateItems.dart';
 import 'package:live_mart/Retailer/Screens/placeOrder.dart';
+import 'package:live_mart/Retailer/Screens/CustomerDetails.dart';
 
 class HomeScreenW extends StatefulWidget {
   @override
@@ -36,13 +37,13 @@ class _HomeScreenWState extends State<HomeScreenW> {
               onTap: () {
                 // Update the state of the app.
                 // ...
-                //  Navigator.pop(context);
-                // Navigator.push(
-                //  context,
-                // MaterialPageRoute(builder: (context) {
-                // /  return CustomerDetails();
-                // }),
-                //);
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return CustomerDetails();
+                  }),
+                );
               },
             ),
             ListTile(
